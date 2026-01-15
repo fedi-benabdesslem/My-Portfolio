@@ -36,10 +36,10 @@ export default function Hero() {
             </div>
 
             {/* 3D Scene Container */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none z-0">
                 <motion.div
                     style={{ y }}
-                    className="w-[600px] h-[600px] md:w-[800px] md:h-[800px]"
+                    className="w-full h-full"
                 >
                     <Scene3D />
                 </motion.div>
