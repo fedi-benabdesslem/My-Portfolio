@@ -7,12 +7,12 @@
 :root {
   /* Background Colors */
   --background-dark: #000000;
-  --background-light: #F4F4F4;
+  --background-light: #000000;
   --background-card: rgba(255, 255, 255, 0.05);
 
   /* Text Colors */
   --text-primary: #FFFFFF;
-  --text-secondary: #1A1A1A;
+  --text-secondary: #FFFFFF;
   --text-muted: #A3A3A3;
   --text-accent: #C9A87C;
 

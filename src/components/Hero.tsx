@@ -24,6 +24,12 @@ export default function Hero() {
     const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    // Parallax text movement - subtle but noticeable
+    // "Regorous Logic" slides Left (-x)
+    const textXLeft = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    // "Artistic Code" slides Right (+x)
+    const textXRight = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
     return (
         <section
             ref={containerRef}
@@ -36,10 +42,10 @@ export default function Hero() {
             </div>
 
             {/* 3D Scene Container */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none z-0">
                 <motion.div
                     style={{ y }}
-                    className="w-[600px] h-[600px] md:w-[800px] md:h-[800px]"
+                    className="w-full h-full"
                 >
                     <Scene3D />
                 </motion.div>
@@ -48,7 +54,7 @@ export default function Hero() {
             {/* Hero Content */}
             <motion.div
                 style={{ opacity }}
-                className="relative z-10 w-full max-w-7xl mx-auto px-6"
+                className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center"
             >
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     {/* Left Text */}
@@ -56,16 +62,17 @@ export default function Hero() {
                         initial={{ x: -50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
+                        style={{ x: textXLeft }}
                         className="text-left"
                     >
                         <h1 className="heading-xl">
                             <span className="font-[family-name:var(--font-playfair)] italic">
-                                Engineering
+                                Regorous
                             </span>
                         </h1>
                         <h1 className="heading-xl text-[var(--text-muted)]">
                             <span className="font-[family-name:var(--font-playfair)]">
-                                elegant
+                                Logic.
                             </span>
                         </h1>
                     </motion.div>
@@ -75,16 +82,17 @@ export default function Hero() {
                         initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
+                        style={{ x: textXRight }}
                         className="text-right"
                     >
                         <h1 className="heading-xl text-[var(--text-muted)]">
                             <span className="font-[family-name:var(--font-playfair)]">
-                                solutions
+                                Artistic
                             </span>
                         </h1>
                         <h1 className="heading-xl">
                             <span className="font-[family-name:var(--font-playfair)] italic gradient-text">
-                                through code
+                                Code.
                             </span>
                         </h1>
                     </motion.div>
