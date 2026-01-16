@@ -41,8 +41,8 @@ export default function Footer() {
                             <span className="text-[var(--text-muted)]">.</span>
                         </motion.a>
                         <p className="text-sm text-[var(--text-muted)] max-w-xs">
-                            Engineering elegant solutions through code. Computer Science
-                            student passionate about systems and security.
+                            Engineering elegant solutions through code. Applied Computer Science
+                            student @ ENISO.
                         </p>
                     </div>
 
@@ -106,9 +106,8 @@ export default function Footer() {
                         © {currentYear} Fedi Ben Abdesslem. All rights reserved.
                     </p>
                     <p className="text-sm text-[var(--text-muted)]">
-                        Built with{" "}
-                        <span className="gradient-text font-medium">Precision</span> &{" "}
-                        <span className="gradient-text font-medium">Passion</span>
+                        Inspired by{" "}
+                        <span className="gradient-text font-medium">No Man's Sky</span>
                     </p>
                 </div>
             </div>

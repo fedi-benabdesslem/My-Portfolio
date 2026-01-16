@@ -111,7 +111,8 @@ export default function Skills() {
                         Technical Arsenal
                     </span>
                     <h2 className="heading-lg text-[var(--text-secondary)] font-[family-name:var(--font-playfair)]">
-                        Skills & Technologies
+                        Skills &{" "}
+                        <span className="gradient-text font-medium">Technologies</span>
                     </h2>
                 </motion.div>
 

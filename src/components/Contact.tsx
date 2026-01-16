@@ -39,7 +39,7 @@ export default function Contact() {
                     <h2 className="heading-lg font-[family-name:var(--font-playfair)] mb-6">
                         Let&apos;s build something
                         <br />
-                        <span className="italic gradient-text">amazing together</span>
+                        <span className="italic gradient-text">amazing together .</span>
                     </h2>
                     <p className="body-text max-w-lg mx-auto">
                         I&apos;m always interested in new opportunities, collaborations, and

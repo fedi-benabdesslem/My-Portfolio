@@ -27,7 +27,7 @@ const inter = Inter({
 // ===========================================
 
 export const metadata: Metadata = {
-  title: "Fedi Ben Abdesslem | Software Engineer",
+  title: "FBA-portfolio",
   description:
     "Computer Science Engineering student specializing in systems programming, container security, and modern web development. Bridging mathematical theory with practical engineering.",
   keywords: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Fedi Ben Abdesslem" }],
   openGraph: {
-    title: "Fedi Ben Abdesslem | Software Engineer",
+    title: "FBA-portfolio",
     description:
       "Computer Science Engineering student specializing in systems programming and modern web development.",
     type: "website",

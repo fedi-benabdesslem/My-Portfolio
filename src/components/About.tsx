@@ -9,18 +9,18 @@ import { useRef } from "react";
 // ===========================================
 const aboutContent = {
     tagline: "Who I Am",
-    headline: "A systems enthusiast bridging theory with practice",
-    description: `Computer Science engineering student with a deep interest in bridging the gap 
+    headline: "Synthesizing first principles with pragmatic engineering to build scalable systems.",
+    description: `A Computer Science engineering student with a deep interest in bridging the gap 
   between rigorous mathematical theory and practical engineering. I transform complex low-level 
   mechanics into intuitive, artistic solutions that solve modern engineering challenges.`,
     highlights: [
         {
-            label: "Focus",
-            value: "Systems Programming",
+            label: "Profession",
+            value: "Software Engineering",
         },
         {
-            label: "Education",
-            value: "ENISo, Tunisia",
+            label: "Current Status",
+            value: "Engineering Student @ ENISo",
         },
         {
             label: "Passion",

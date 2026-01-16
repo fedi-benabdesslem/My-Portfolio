@@ -190,7 +190,7 @@ export default function Projects() {
                     <h2 className="heading-lg font-[family-name:var(--font-playfair)]">
                         Projects that define
                         <br />
-                        <span className="italic gradient-text">my craft</span>
+                        <span className="italic gradient-text">my craft .</span>
                     </h2>
                 </motion.div>
 

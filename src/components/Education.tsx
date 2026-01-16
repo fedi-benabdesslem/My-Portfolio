@@ -159,7 +159,7 @@ export default function Education() {
                     </span>
                     <h2 className="heading-lg font-[family-name:var(--font-playfair)]">
                         Education &{" "}
-                        <span className="italic gradient-text">Formation</span>
+                        <span className="italic gradient-text">Formation </span>
                     </h2>
                 </motion.div>
 
