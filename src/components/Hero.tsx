@@ -24,6 +24,12 @@ export default function Hero() {
     const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+    // Parallax text movement - subtle but noticeable
+    // "Regorous Logic" slides Left (-x)
+    const textXLeft = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    // "Artistic Code" slides Right (+x)
+    const textXRight = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
     return (
         <section
             ref={containerRef}
@@ -48,7 +54,7 @@ export default function Hero() {
             {/* Hero Content */}
             <motion.div
                 style={{ opacity }}
-                className="relative z-10 w-full max-w-7xl mx-auto px-6"
+                className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center"
             >
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     {/* Left Text */}
@@ -56,6 +62,7 @@ export default function Hero() {
                         initial={{ x: -50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
+                        style={{ x: textXLeft }}
                         className="text-left"
                     >
                         <h1 className="heading-xl">
@@ -75,6 +82,7 @@ export default function Hero() {
                         initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
+                        style={{ x: textXRight }}
                         className="text-right"
                     >
                         <h1 className="heading-xl text-[var(--text-muted)]">
