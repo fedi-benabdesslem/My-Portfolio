@@ -46,7 +46,7 @@ export default function Header() {
                         whileHover={{ scale: 1.02 }}
                     >
                         <span className="font-[family-name:var(--font-playfair)] italic">
-                            Fedi
+                            Fedi Ben Abdesslem
                         </span>
                         <span className="text-[var(--text-muted)] ml-1">.</span>
                     </motion.a>

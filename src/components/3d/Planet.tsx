@@ -8,12 +8,12 @@ export default function Planet() {
     const meshRef = useRef<THREE.Mesh>(null);
     const atmosphereRef = useRef<THREE.Mesh>(null);
 
-    // Create a custom rocky texture using noise (simplified for no-dependency approach)
-    // We'll use a high-roughness material with a specific color to simulate the dark planet
-
     useFrame((state) => {
         if (meshRef.current) {
             meshRef.current.rotation.y += 0.001;
+        }
+        if (atmosphereRef.current) {
+            atmosphereRef.current.rotation.y += 0.0015;
         }
     });
 
@@ -40,7 +40,6 @@ export default function Planet() {
                     opacity={0.3}
                     roughness={0.9}
                     side={THREE.DoubleSide}
-                    alphaHash // Gives a noisy transparency look, improved in newer Three/Fiber versions
                 />
             </mesh>
 
@@ -57,7 +56,7 @@ export default function Planet() {
             </mesh>
 
             {/* Atmospheric Glow (Inner/Rim) */}
-            <mesh ref={atmosphereRef} scale={[1.05, 1.05, 1.05]}>
+            <mesh scale={[1.05, 1.05, 1.05]}>
                 <sphereGeometry args={[2, 64, 64]} />
                 <meshPhongMaterial
                     color="#ec4899" // Pinkish rim

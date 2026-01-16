@@ -36,7 +36,7 @@ export default function Footer() {
                             whileHover={{ scale: 1.02 }}
                         >
                             <span className="font-[family-name:var(--font-playfair)] italic">
-                                Fedi
+                                Fedi Ben Abdesslem
                             </span>
                             <span className="text-[var(--text-muted)]">.</span>
                         </motion.a>
@@ -107,8 +107,8 @@ export default function Footer() {
                     </p>
                     <p className="text-sm text-[var(--text-muted)]">
                         Built with{" "}
-                        <span className="gradient-text font-medium">Next.js</span> &{" "}
-                        <span className="gradient-text font-medium">Framer Motion</span>
+                        <span className="gradient-text font-medium">Precision</span> &{" "}
+                        <span className="gradient-text font-medium">Passion</span>
                     </p>
                 </div>
             </div>

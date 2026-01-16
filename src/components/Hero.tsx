@@ -60,12 +60,12 @@ export default function Hero() {
                     >
                         <h1 className="heading-xl">
                             <span className="font-[family-name:var(--font-playfair)] italic">
-                                Engineering
+                                Regorous
                             </span>
                         </h1>
                         <h1 className="heading-xl text-[var(--text-muted)]">
                             <span className="font-[family-name:var(--font-playfair)]">
-                                elegant
+                                Logic.
                             </span>
                         </h1>
                     </motion.div>
@@ -79,12 +79,12 @@ export default function Hero() {
                     >
                         <h1 className="heading-xl text-[var(--text-muted)]">
                             <span className="font-[family-name:var(--font-playfair)]">
-                                solutions
+                                Artistic
                             </span>
                         </h1>
                         <h1 className="heading-xl">
                             <span className="font-[family-name:var(--font-playfair)] italic gradient-text">
-                                through code
+                                Code.
                             </span>
                         </h1>
                     </motion.div>
