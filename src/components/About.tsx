@@ -8,7 +8,7 @@ import { useRef } from "react";
 // ABOUT CONTENT - Edit this to change your bio
 // ===========================================
 const aboutContent = {
-    tagline: "Who I Am",
+    tagline: "Who Am I ?",
     headline: "Synthesizing first principles with pragmatic engineering to build scalable systems.",
     description: `A Computer Science engineering student with a deep interest in bridging the gap 
   between rigorous mathematical theory and practical engineering. I transform complex low-level 
@@ -24,7 +24,7 @@ const aboutContent = {
         },
         {
             label: "Passion",
-            value: "Kernel & Security",
+            value: "Operating Systems & Security",
         },
     ],
 };

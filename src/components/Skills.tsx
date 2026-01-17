@@ -11,8 +11,8 @@ const skillsData = {
         icon: "💻",
         skills: ["Python", "C/C++", "Java", "JavaScript", "TypeScript"],
     },
-    "Systems & Security": {
-        icon: "🔒",
+    "Frameworks & Technologies": {
+        icon: "⚙️",
         skills: [
             "Linux Kernel",
             "eBPF",
@@ -22,7 +22,7 @@ const skillsData = {
             "Runtime Security",
         ],
     },
-    "Web Development": {
+    "Web & Mobile Development": {
         icon: "🌐",
         skills: ["React.js", "Next.js", "REST APIs", "Tailwind CSS", "FastAPI"],
     },
@@ -36,7 +36,7 @@ const skillsData = {
     },
     "Soft Skills": {
         icon: "🤝",
-        skills: ["Communication", "Problem Solving", "Adaptability", "Leadership"],
+        skills: ["Communication", "Flexibility", "Adaptability", "Initiative"],
     },
 };
 

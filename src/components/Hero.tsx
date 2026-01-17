@@ -92,7 +92,7 @@ export default function Hero() {
                         </h1>
                         <h1 className="heading-xl">
                             <span className="font-[family-name:var(--font-playfair)] italic gradient-text">
-                                World.
+                                Planet.
                             </span>
                         </h1>
                     </motion.div>

@@ -45,10 +45,9 @@ export default function Header() {
                         className="text-xl font-medium tracking-tight"
                         whileHover={{ scale: 1.02 }}
                     >
-                        <span className="font-[family-name:var(--font-playfair)] italic">
-                            Fedi Ben Abdesslem
+                        <span className="font-[family-name:var(--font-playfair)] italic gradient-text">
+                            Fedi Ben Abdesslem.
                         </span>
-                        <span className="text-[var(--text-muted)] ml-1">.</span>
                     </motion.a>
 
                     {/* Desktop Navigation */}
