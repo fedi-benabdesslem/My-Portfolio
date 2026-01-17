@@ -36,7 +36,7 @@ Ensure you have [Node.js 18+](https://nodejs.org/) installed.
 Clone the repository and install dependencies:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/fedi-benabdesslem/My-Portfolio.git
 cd My-Portfolio
 npm install
 # or
