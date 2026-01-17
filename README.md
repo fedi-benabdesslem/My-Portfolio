@@ -66,4 +66,6 @@ npm start
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+Copyright © Fedi Ben Abdesslem (fedi.benabdesslem@eniso.u-sousse.tn).
+
+Reproducing this work regardless of modifciation, in any form without prior written permission of the author is prohibited.
