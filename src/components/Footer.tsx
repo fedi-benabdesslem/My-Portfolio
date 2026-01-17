@@ -1,10 +1,5 @@
 "use client";
-
 import { motion } from "framer-motion";
-
-// ===========================================
-// FOOTER LINKS - Edit these to change footer content
-// ===========================================
 const footerLinks = {
     social: [
         {
@@ -20,10 +15,8 @@ const footerLinks = {
         { name: "Contact", href: "#contact" },
     ],
 };
-
 export default function Footer() {
     const currentYear = new Date().getFullYear();
-
     return (
         <footer className="relative py-16 bg-black border-t border-white/5">
             <div className="section max-w-6xl">
@@ -45,7 +38,6 @@ export default function Footer() {
                             student @ ENISO.
                         </p>
                     </div>
-
                     {/* Navigation */}
                     <div>
                         <h4 className="text-sm font-medium mb-4 text-[var(--text-muted)]">
@@ -64,7 +56,6 @@ export default function Footer() {
                             ))}
                         </ul>
                     </div>
-
                     {/* Social */}
                     <div>
                         <h4 className="text-sm font-medium mb-4 text-[var(--text-muted)]">
@@ -99,7 +90,6 @@ export default function Footer() {
                         </ul>
                     </div>
                 </div>
-
                 {/* Bottom Bar */}
                 <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-[var(--text-muted)]">

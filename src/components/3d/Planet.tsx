@@ -1,13 +1,9 @@
 "use client";
-
 import { useRef, useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-
-// ============================================
 // CINEMATIC PLANET - PHYSICALLY ACCURATE 3D
 // Enhanced with realistic Fresnel atmospheric scattering
-// ============================================
 
 // ----- PLANET SURFACE SHADER -----
 const planetVertexShader = `
@@ -28,7 +24,6 @@ const planetVertexShader = `
     gl_Position = projectionMatrix * mvPosition;
   }
 `;
-
 const planetFragmentShader = `
   uniform float uTime;
   uniform vec3 uStarDirection;
@@ -158,8 +153,7 @@ const planetFragmentShader = `
     gl_FragColor = vec4(finalColor, 1.0);
   }
 `;
-
-// ----- ENHANCED FRESNEL ATMOSPHERE SHADER -----
+// ENHANCED FRESNEL ATMOSPHERE SHADER
 // Realistic atmospheric scattering with depth and luminosity
 const atmosphereVertexShader = `
   varying vec3 vNormal;
@@ -273,8 +267,7 @@ const atmosphereFragmentShader = `
     gl_FragColor = vec4(finalColor, alpha);
   }
 `;
-
-// ----- INNER GLOW SHADER (surface-hugging atmospheric glow) -----
+// INNER GLOW SHADER (surface-hugging atmospheric glow)
 const innerGlowFragmentShader = `
   uniform float uTime;
   uniform vec3 uStarDirection;
@@ -309,7 +302,7 @@ const innerGlowFragmentShader = `
   }
 `;
 
-// ----- BLOOM HIGHLIGHT (only the brightest rim) -----
+// BLOOM HIGHLIGHT (only the brightest rim)
 const bloomFragmentShader = `
   uniform vec3 uStarDirection;
   uniform vec3 uBloomColor;
@@ -344,7 +337,7 @@ const bloomFragmentShader = `
   }
 `;
 
-// ----- OUTER HAZE (depth separation) -----
+// OUTER HAZE (depth separation)
 const outerHazeFragmentShader = `
   uniform float uTime;
   uniform vec3 uHazeColor;
@@ -374,11 +367,9 @@ export default function Planet() {
   const innerGlowRef = useRef<THREE.Mesh>(null);
   const outerHazeRef = useRef<THREE.Mesh>(null);
   const bloomRef = useRef<THREE.Mesh>(null);
-
   // Custom scroll tracking refs
   const scrollRef = useRef({ offset: 0, delta: 0, velocity: 0 });
-
-  // Setup native scroll listener
+  // native scroll listener
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -396,17 +387,14 @@ export default function Planet() {
 
       lastScrollY = scrollY;
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   // Star light source direction
   const starDirection = useMemo(() => new THREE.Vector3(1.5, 0.6, 0.8).normalize(), []);
   const initialStarDir = useRef(starDirection.clone());
 
-  // ----- MATERIALS -----
-
+  // MATERIALS
   const planetMaterial = useMemo(() => new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
@@ -419,14 +407,13 @@ export default function Planet() {
     vertexShader: planetVertexShader,
     fragmentShader: planetFragmentShader,
   }), [starDirection]);
-
   const atmosphereMaterial = useMemo(() => new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
       uStarDirection: { value: starDirection },
-      uInnerColor: { value: new THREE.Color("#fce7f3") },  // Light pink/white
-      uMidColor: { value: new THREE.Color("#e879f9") },    // Bright magenta
-      uOuterColor: { value: new THREE.Color("#7c3aed") },  // Deep violet
+      uInnerColor: { value: new THREE.Color("#fce7f3") },
+      uMidColor: { value: new THREE.Color("#e879f9") },
+      uOuterColor: { value: new THREE.Color("#7c3aed") },
       uIntensity: { value: 1.2 },
       uScatterPower: { value: 3.5 },
     },
@@ -437,7 +424,6 @@ export default function Planet() {
     side: THREE.BackSide,
     depthWrite: false,
   }), [starDirection]);
-
   const innerGlowMaterial = useMemo(() => new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
@@ -452,7 +438,6 @@ export default function Planet() {
     side: THREE.BackSide,
     depthWrite: false,
   }), [starDirection]);
-
   const bloomMaterial = useMemo(() => new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
@@ -467,7 +452,6 @@ export default function Planet() {
     side: THREE.BackSide,
     depthWrite: false,
   }), [starDirection]);
-
   const outerHazeMaterial = useMemo(() => new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
@@ -481,43 +465,34 @@ export default function Planet() {
     side: THREE.BackSide,
     depthWrite: false,
   }), []);
-
   // Animation Loop - Physics & Scroll Reactivity
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     const { offset, delta } = scrollRef.current;
-
-    // --- 1. INERTIAL ROTATION (Mass simulation) ---
+    // 1. INERTIAL ROTATION (Mass simulation)
     if (planetRef.current) {
       // Base rotation (slow drift)
       planetRef.current.rotation.y += 0.0003;
-
       // Scroll-based rotation (target max 18 degrees = ~0.3 radians)
       const targetRotationY = offset * 0.3;
-
       // Smooth interpolation for heavy feel
       planetRef.current.rotation.x = THREE.MathUtils.lerp(
         planetRef.current.rotation.x,
         targetRotationY * 0.2, // Slight tilt
         0.05
       );
-
       // Add scroll velocity to Y rotation (spin faster when scrolling)
       planetRef.current.rotation.y += delta * 5.0; // Scaled for effect
-
       (planetRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = time;
     }
-
-    // --- 2. ATMOSPHERIC BREATHING (Life cue) ---
+    // 2. ATMOSPHERIC BREATHING (Life cue)
     const breathing = Math.sin(time * 0.8) * 0.04;
     const scrollExcitement = offset * 0.15;
-
     if (atmosphereRef.current) {
       const mat = atmosphereRef.current.material as THREE.ShaderMaterial;
       mat.uniforms.uTime.value = time;
       mat.uniforms.uIntensity.value = 1.2 + breathing + scrollExcitement;
     }
-
     if (innerGlowRef.current) {
       (innerGlowRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = time;
     }
@@ -530,19 +505,16 @@ export default function Planet() {
     if (outerHazeRef.current) {
       (outerHazeRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = time;
     }
-
-    // --- 3. LIGHT ANGLE DRIFT (Scale cue) ---
+    // 3. LIGHT ANGLE DRIFT (Scale cue)
     // Max rotation 6 degrees (~0.1 radians)
     const lightRot = offset * 0.1;
     const newDir = initialStarDir.current.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), lightRot);
-
     // Update uniforms
     if (planetRef.current) (planetRef.current.material as THREE.ShaderMaterial).uniforms.uStarDirection.value.copy(newDir);
     if (atmosphereRef.current) (atmosphereRef.current.material as THREE.ShaderMaterial).uniforms.uStarDirection.value.copy(newDir);
     if (innerGlowRef.current) (innerGlowRef.current.material as THREE.ShaderMaterial).uniforms.uStarDirection.value.copy(newDir);
     if (bloomRef.current) (bloomRef.current.material as THREE.ShaderMaterial).uniforms.uStarDirection.value.copy(newDir);
   });
-
   return (
     <group>
       {/* Planet Surface */}
@@ -554,22 +526,18 @@ export default function Planet() {
       <mesh ref={innerGlowRef} material={innerGlowMaterial} scale={[1.018, 1.018, 1.018]}>
         <sphereGeometry args={[2, 64, 64]} />
       </mesh>
-
       {/* Bloom Highlight (brightest rim only) */}
       <mesh ref={bloomRef} material={bloomMaterial} scale={[1.035, 1.035, 1.035]}>
         <sphereGeometry args={[2, 64, 64]} />
       </mesh>
-
       {/* Main Volumetric Atmosphere */}
       <mesh ref={atmosphereRef} material={atmosphereMaterial} scale={[1.07, 1.07, 1.07]}>
         <sphereGeometry args={[2, 64, 64]} />
       </mesh>
-
       {/* Outer Atmospheric Haze (depth separation) */}
       <mesh ref={outerHazeRef} material={outerHazeMaterial} scale={[1.18, 1.18, 1.18]}>
         <sphereGeometry args={[2, 48, 48]} />
       </mesh>
-
       {/* Depth Separation Haze */}
       <mesh scale={[1.3, 1.3, 1.3]}>
         <sphereGeometry args={[2, 32, 32]} />

@@ -1,8 +1,6 @@
 "use client";
-
 import { useEffect } from "react";
 import Lenis from "lenis";
-
 // Components
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -12,14 +10,8 @@ import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
-// ===========================================
 // MAIN PAGE
-// This is the entry point - all sections are composed here
-// ===========================================
-
 export default function Home() {
-  // Initialize smooth scrolling
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -28,19 +20,15 @@ export default function Home() {
       gestureOrientation: "vertical",
       smoothWheel: true,
     });
-
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
-
     return () => {
       lenis.destroy();
     };
   }, []);
-
   return (
     <>
       {/* Navigation */}
@@ -48,22 +36,22 @@ export default function Home() {
 
       {/* Main Content */}
       <main>
-        {/* Hero - Dark background with 3D animation */}
+        {/* Hero */}
         <Hero />
 
-        {/* About - Light background */}
+        {/* About */}
         <About />
 
-        {/* Projects - Dark background */}
+        {/* Projects */}
         <Projects />
 
-        {/* Education - Dark background */}
+        {/* Education */}
         <Education />
 
-        {/* Skills - Light background */}
+        {/* Skills */}
         <Skills />
 
-        {/* Contact - Dark background */}
+        {/* Contact */}
         <Contact />
       </main>
 

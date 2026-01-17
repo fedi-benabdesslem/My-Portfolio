@@ -1,12 +1,8 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-
-// ===========================================
-// ABOUT CONTENT - Edit this to change your bio
-// ===========================================
+// ABOUT CONTENT
 const aboutContent = {
     tagline: "Who Am I ?",
     headline: "Synthesizing first principles with pragmatic engineering to build scalable systems.",
@@ -28,11 +24,9 @@ const aboutContent = {
         },
     ],
 };
-
 export default function About() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-
     return (
         <section
             id="about"
@@ -52,7 +46,6 @@ export default function About() {
                 >
                     {aboutContent.tagline}
                 </motion.span>
-
                 <div className="grid md:grid-cols-2 gap-12 md:gap-20">
                     {/* Left - Headline */}
                     <motion.div
@@ -66,7 +59,6 @@ export default function About() {
                             </span>
                         </h2>
                     </motion.div>
-
                     {/* Right - Description */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
@@ -77,7 +69,6 @@ export default function About() {
                         <p className="body-text text-[var(--text-secondary)]/70 leading-relaxed">
                             {aboutContent.description}
                         </p>
-
                         {/* Highlights Grid */}
                         <div className="grid grid-cols-3 gap-6 pt-4">
                             {aboutContent.highlights.map((item, index) => (
@@ -100,7 +91,6 @@ export default function About() {
                     </motion.div>
                 </div>
             </div>
-
             {/* Decorative gradient bottom */}
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
         </section>

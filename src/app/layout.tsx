@@ -1,31 +1,21 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-
-// ===========================================
-// FONTS - Change these to switch font styles
-// ===========================================
-
-// Elegant serif for headlines (like PP Migra)
+// FONTS
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
-  // Weight options: 400, 500, 600, 700, 800, 900
+  // Weight options
   weight: ["400", "500", "600", "700"],
 });
 
-// Clean sans-serif for body text (like PP Neue Montreal)
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
-
-// ===========================================
-// METADATA - Update this for SEO
-// ===========================================
-
+// METADATA
 export const metadata: Metadata = {
   title: "FBA-portfolio",
   description:
@@ -47,11 +37,7 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-// ===========================================
 // ROOT LAYOUT
-// ===========================================
-
 export default function RootLayout({
   children,
 }: Readonly<{

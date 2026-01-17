@@ -1,11 +1,7 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-// ===========================================
-// PROJECTS DATA - Edit this to add/change projects
-// ===========================================
+// PROJECTS DATA
 const projectsData = [
     {
         id: 1,
@@ -38,7 +34,6 @@ const projectsData = [
         gradient: "from-[var(--accent-purple)] to-[var(--accent-blue)]",
     },
 ];
-
 function ProjectCard({
     project,
     index,
@@ -48,9 +43,7 @@ function ProjectCard({
 }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
-
     const isEven = index % 2 === 0;
-
     return (
         <motion.article
             ref={ref}
@@ -70,7 +63,6 @@ function ProjectCard({
                 <div
                     className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
                 />
-
                 {/* Glass Card Preview */}
                 <div className="absolute inset-8 glass rounded-xl flex flex-col justify-center items-center p-8">
                     <div className="w-full max-w-xs">
@@ -92,13 +84,11 @@ function ProjectCard({
                         </div>
                     </div>
                 </div>
-
                 {/* Hover Glow */}
                 <div
                     className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl`}
                 />
             </div>
-
             {/* Project Info */}
             <div className="flex flex-col gap-6" style={{ direction: "ltr" }}>
                 {/* Title */}
@@ -111,10 +101,8 @@ function ProjectCard({
                     </h3>
                     <p className="text-[var(--text-muted)]">{project.subtitle}</p>
                 </div>
-
                 {/* Description */}
                 <p className="body-text">{project.description}</p>
-
                 {/* Highlights */}
                 <ul className="space-y-2">
                     {project.highlights.map((highlight, i) => (
@@ -127,7 +115,6 @@ function ProjectCard({
                         </li>
                     ))}
                 </ul>
-
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
@@ -139,7 +126,6 @@ function ProjectCard({
                         </span>
                     ))}
                 </div>
-
                 {/* Link */}
                 {project.link !== "#" && (
                     <motion.a
@@ -169,11 +155,9 @@ function ProjectCard({
         </motion.article>
     );
 }
-
 export default function Projects() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-
     return (
         <section id="projects" ref={ref} className="relative py-32 bg-black">
             <div className="section max-w-6xl">
@@ -193,7 +177,6 @@ export default function Projects() {
                         <span className="italic gradient-text">my craft .</span>
                     </h2>
                 </motion.div>
-
                 {/* Projects Grid */}
                 <div className="space-y-24 md:space-y-32">
                     {projectsData.map((project, index) => (

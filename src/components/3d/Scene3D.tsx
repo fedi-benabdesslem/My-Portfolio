@@ -1,14 +1,9 @@
 "use client";
-
 import { Canvas } from "@react-three/fiber";
 import { Stars, Sparkles, Environment } from "@react-three/drei";
 import Planet from "./Planet";
 import Spaceship from "./Spaceship";
-
-// ===========================================
 // NO MAN'S SKY INSPIRED SCENE
-// ===========================================
-
 export default function Scene3D() {
     return (
         <Canvas
@@ -18,9 +13,8 @@ export default function Scene3D() {
         >
             {/* Background Atmosphere/Fog */}
             <color attach="background" args={["#000000"]} />
-            {/* Note: We use transparent in canvas style, but adding a fog helps blend */}
+            {/* Note: I use transparent in canvas style, but adding a fog helps blend */}
             <fog attach="fog" args={['#2d0a3d', 5, 20]} />
-
             {/* Space Background */}
             <Stars
                 radius={300}
@@ -49,35 +43,29 @@ export default function Scene3D() {
                 speed={0.3}
                 opacity={0.2}
             />
-
-            {/* Lighting - Crucial for the NMS Look */}
+            {/* Lighting */}
             <ambientLight intensity={0.4} color="#581c87" /> {/* Brighter, rich purple ambient */}
 
             {/* Main "Sun" Light */}
             <directionalLight
                 position={[10, 5, 5]}
                 intensity={2}
-                color="#ffedd5" // Warm sun color
+                color="#ffedd5"
             />
-
             {/* Rim Light for Dramatic Edge */}
             <spotLight
                 position={[-10, 0, -5]}
                 intensity={5}
-                color="#d946ef" // Pink rim light
+                color="#d946ef"
                 angle={0.5}
                 penumbra={1}
             />
-
             {/* Fill Light */}
             <pointLight position={[0, -10, 5]} intensity={0.5} color="#4338ca" />
-
-
             {/* Scene Objects */}
             <Planet />
             <Spaceship />
-
-            {/* Optional: Add a second distant ship or moon if desired later */}
+            {/* Blank Space for Adding another object like a spacship further in the project */}
         </Canvas>
     );
 }

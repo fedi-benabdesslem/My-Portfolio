@@ -1,15 +1,10 @@
 "use client";
-
 import { useRef, useMemo, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-
-// ============================================
-// RECREATED SPACESHIP FROM GLB REFERENCE
 // Built with Three.js primitives only
-// ============================================
 
-// ----- EXHAUST PARTICLE SHADER -----
+// EXHAUST PARTICLE SHADER
 const exhaustVertexShader = `
   attribute float size;
   attribute float alpha;
@@ -26,7 +21,6 @@ const exhaustVertexShader = `
     gl_Position = projectionMatrix * mvPosition;
   }
 `;
-
 const exhaustFragmentShader = `
   uniform vec3 uColor;
   uniform vec3 uCoreColor;
@@ -46,8 +40,7 @@ const exhaustFragmentShader = `
     gl_FragColor = vec4(color, alpha);
   }
 `;
-
-// ----- ENGINE GLOW SHADER -----
+// ENGINE GLOW SHADER
 const engineGlowVertexShader = `
   varying vec3 vNormal;
   varying vec3 vViewPosition;
@@ -59,7 +52,6 @@ const engineGlowVertexShader = `
     gl_Position = projectionMatrix * mvPosition;
   }
 `;
-
 const engineGlowFragmentShader = `
   uniform vec3 uColor;
   uniform float uIntensity;
@@ -77,7 +69,6 @@ const engineGlowFragmentShader = `
     gl_FragColor = vec4(uColor, alpha);
   }
 `;
-
 // Particle exhaust system
 function ExhaustParticles({ position, direction, count = 100, spread = 0.1, speed = 2.0, color = "#a855f7" }: {
     position: [number, number, number];
@@ -88,7 +79,6 @@ function ExhaustParticles({ position, direction, count = 100, spread = 0.1, spee
     color?: string;
 }) {
     const pointsRef = useRef<THREE.Points>(null);
-
     const { positions, sizes, alphas, lives, velocities } = useMemo(() => {
         const positions = new Float32Array(count * 3);
         const sizes = new Float32Array(count);

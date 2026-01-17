@@ -1,11 +1,7 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-// ===========================================
-// NAVIGATION LINKS - Edit these to change menu
-// ===========================================
+// NAVIGATION LINKS
 const navLinks = [
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
@@ -13,20 +9,16 @@ const navLinks = [
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
 ];
-
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
     return (
         <>
             <motion.header
@@ -49,7 +41,6 @@ export default function Header() {
                             Fedi Ben Abdesslem.
                         </span>
                     </motion.a>
-
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1">
                         <div
@@ -69,7 +60,6 @@ export default function Header() {
                             ))}
                         </div>
                     </div>
-
                     {/* Action Buttons - Desktop */}
                     <div className="hidden md:flex items-center gap-3">
                         <motion.a
@@ -91,7 +81,6 @@ export default function Header() {
                             Let&apos;s Talk
                         </motion.a>
                     </div>
-
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -121,7 +110,6 @@ export default function Header() {
                     </button>
                 </nav>
             </motion.header>
-
             {/* Mobile Menu */}
             <AnimatePresence>
                 {isMobileMenuOpen && (

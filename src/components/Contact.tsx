@@ -1,22 +1,16 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-// ===========================================
-// CONTACT INFO - Edit this to change your links
-// ===========================================
+// CONTACT INFO
 const contactInfo = {
     email: "fedi.benabdesslem@eniso.u-sousse.tn",
     phone: "+216 58 752 756",
     linkedin: "https://www.linkedin.com/in/fedi-ben-abdesslem/",
     github: "https://github.com/fedi-benabdesslem",
 };
-
 export default function Contact() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-
     return (
         <section id="contact" ref={ref} className="relative py-32 bg-black">
             {/* Background glows */}
@@ -24,7 +18,6 @@ export default function Contact() {
                 <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[var(--accent-purple)] rounded-full blur-[200px] opacity-10" />
                 <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-[var(--accent-orange)] rounded-full blur-[200px] opacity-10" />
             </div>
-
             <div className="section max-w-4xl relative z-10">
                 {/* Section Header */}
                 <motion.div
@@ -46,7 +39,6 @@ export default function Contact() {
                         challenging projects. Feel free to reach out!
                     </p>
                 </motion.div>
-
                 {/* Contact Card */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -67,10 +59,8 @@ export default function Contact() {
                             {contactInfo.email}
                         </motion.a>
                     </div>
-
                     {/* Divider */}
                     <div className="w-full h-px bg-white/10 mb-12" />
-
                     {/* Links Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                         {/* Phone */}
@@ -96,7 +86,6 @@ export default function Contact() {
                             </div>
                             <span className="text-sm text-[var(--text-muted)]">Phone</span>
                         </motion.a>
-
                         {/* LinkedIn */}
                         <motion.a
                             href={contactInfo.linkedin}
@@ -116,7 +105,6 @@ export default function Contact() {
                             </div>
                             <span className="text-sm text-[var(--text-muted)]">LinkedIn</span>
                         </motion.a>
-
                         {/* GitHub */}
                         <motion.a
                             href={contactInfo.github}

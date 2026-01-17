@@ -1,11 +1,7 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-// ===========================================
-// SKILLS DATA - Edit this to change your skills
-// ===========================================
+// SKILLS DATA
 const skillsData = {
     "Programming Languages": {
         icon: "💻",
@@ -39,7 +35,6 @@ const skillsData = {
         skills: ["Communication", "Flexibility", "Adaptability", "Initiative"],
     },
 };
-
 function SkillCategory({
     category,
     data,
@@ -51,7 +46,6 @@ function SkillCategory({
 }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
-
     return (
         <motion.div
             ref={ref}
@@ -67,7 +61,6 @@ function SkillCategory({
                     {category}
                 </h3>
             </div>
-
             {/* Skills Tags */}
             <div className="flex flex-wrap gap-2">
                 {data.skills.map((skill, i) => (
@@ -85,11 +78,9 @@ function SkillCategory({
         </motion.div>
     );
 }
-
 export default function Skills() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-
     return (
         <section
             id="skills"
@@ -115,7 +106,6 @@ export default function Skills() {
                         <span className="gradient-text font-medium">Technologies</span>
                     </h2>
                 </motion.div>
-
                 {/* Skills Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {Object.entries(skillsData).map(([category, data], index) => (
@@ -127,7 +117,6 @@ export default function Skills() {
                         />
                     ))}
                 </div>
-
                 {/* Certifications */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -158,7 +147,6 @@ export default function Skills() {
                     </div>
                 </motion.div>
             </div>
-
             {/* Decorative gradient bottom */}
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
         </section>

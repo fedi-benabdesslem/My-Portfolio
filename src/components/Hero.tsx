@@ -40,7 +40,6 @@ export default function Hero() {
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--accent-purple)] rounded-full blur-[150px] opacity-20 animate-glow" />
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--accent-orange)] rounded-full blur-[150px] opacity-20 animate-glow" style={{ animationDelay: "1.5s" }} />
             </div>
-
             {/* 3D Scene Container */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <motion.div
@@ -50,7 +49,6 @@ export default function Hero() {
                     <Scene3D />
                 </motion.div>
             </div>
-
             {/* Hero Content */}
             <motion.div
                 style={{ opacity }}
@@ -76,7 +74,6 @@ export default function Hero() {
                             </span>
                         </h1>
                     </motion.div>
-
                     {/* Right Text */}
                     <motion.div
                         initial={{ x: 50, opacity: 0 }}
@@ -98,7 +95,6 @@ export default function Hero() {
                     </motion.div>
                 </div>
             </motion.div>
-
             {/* Scroll Indicator */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
