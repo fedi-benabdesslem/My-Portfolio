@@ -66,6 +66,6 @@ npm start
 
 ## 📄 License
 
-Copyright © Fedi Ben Abdesslem (fedi.benabdesslem@eniso.u-sousse.tn).
+Copyright 2026 © Fedi Ben Abdesslem (fedi.benabdesslem@eniso.u-sousse.tn).
 
 Reproducing this work regardless of modifciation, in any form without prior written permission of the author is prohibited.
