@@ -93,7 +93,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-[var(--text-muted)]">
-                        © {currentYear} Fedi Ben Abdesslem. All rights reserved.
+                        {currentYear} © Fedi Ben Abdesslem. All rights reserved.
                     </p>
                     <p className="text-sm text-[var(--text-muted)]">
                         Inspired by{" "}
