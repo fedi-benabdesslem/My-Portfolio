@@ -5,7 +5,7 @@ import { useRef } from "react";
 // ABOUT CONTENT
 const aboutContent = {
     tagline: "Who Am I ?",
-    headline: "Synthesizing first principles with pragmatic engineering to build scalable systems.",
+    headline: "Shaping the future of Secure & Intelligent Systems.",
     description: `A Computer Science engineering student with a deep interest in bridging the gap 
   between rigorous mathematical theory and practical engineering. I transform complex low-level 
   mechanics into intuitive, artistic solutions that solve modern engineering challenges.`,
