@@ -20,7 +20,7 @@ const aboutContent = {
         },
         {
             label: "Passion",
-            value: "Operating Systems & Security",
+            value: "DevOps & Security",
         },
     ],
 };
